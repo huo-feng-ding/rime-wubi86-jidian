@@ -12,19 +12,20 @@ schema:
   description: |
     五笔字形 86 极点极爽版，方案由 KyleBing 修改 - 2019年11月08日 10:26
   dependencies:
+#     - melt_eng   #如果要启用英文词典，把英文方案文件（以melt_eng为例，就是melt_eng.dict.yaml和melt_eng.schema.yaml）复制到此项目之下, 然后再在下边添加 english/dictionary: melt_eng 属性
 #    - pinyin_simp
 
 switches:
   - name: ascii_mode
     reset: 0
     states: [ 中, En ]
-  - name: zh_trad
-    reset: 0    # 初始状态为 0: 简 -> 简 1: 简 -> 繁
-    states: [ 简体, 繁体 ]
-  - name: full_shape
-    states: [ 半角, 全角 ]
-  - name: extended_charset
-    states: [ 常用, 扩展 ]
+#  - name: zh_trad
+#    reset: 0    # 初始状态为 0: 简 -> 简 1: 简 -> 繁
+#    states: [ 简体, 繁体 ]
+#  - name: full_shape
+#    states: [ 半角, 全角 ]
+#  - name: extended_charset
+#    states: [ 常用, 扩展 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -34,6 +35,7 @@ engine:
     - ascii_composer
     - recognizer
     - key_binder
+    - lua_processor@*processor_enter_skip_prefix
     - speller
     - punctuator
     - selector
@@ -42,6 +44,7 @@ engine:
   segmentors:
     - ascii_segmentor
     - matcher
+    - affix_segmentor@english
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
@@ -49,12 +52,23 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+    - table_translator@english 
     - lua_translator@*wubi86_jidian_date_translator # 日期、时间、星期
     - history_translator@repeat_last_input # 重复上一次输入，对应下面的 repeat_last_input
   filters:
     - simplifier@tradition
+    - lua_filter@*append_original_filter # 分号临时英文，再输入分号顶屏上字
 #    - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
 #    - lua_filter@*wubi86_jidian_single_char_only # 纯单字
+
+english:
+  tag: english
+  dictionary: ''   # 如果需要英文词典的话
+  prefix: ";"              # 反查前缀，以它为起点
+  tips: 〔En〕              # 反查时的提示信息
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: 1.1
 
 
 
@@ -63,7 +77,7 @@ engine:
 speller:
   max_code_length: 4                    # 四码上屏
   auto_select: true                     # 四码唯一时，自动上屏
-#  auto_clear: max_length                # 空码时自动清空
+  auto_clear: max_length                # 空码时自动清空
 
 translator:
   dictionary: wubi86_jidian             # 翻译器将调取此字典文件
@@ -128,3 +142,8 @@ repeat_last_input:
   input: z
   size: 1
   initial_quality: 1
+  
+# editor:
+#   bindings:
+#     Return: commit_composition  # 回车上屏候选码
+ 

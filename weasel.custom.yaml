@@ -1,4 +1,4 @@
-﻿# encoding: utf-8
+# encoding: utf-8
 
 customization:
   distribution_code_name: Weasel
@@ -9,7 +9,28 @@ customization:
   config_version: "0.22"
 
 patch:
-  show_notifications_time: 200            # 部署通知、中英切换标识  显示时长 ms
+  show_notifications: false
+  show_notifications_time: 1000            # 部署通知、中英切换标识  显示时长 ms
+  app_options:
+    code.exe:
+      ascii_mode: true
+      vim_mode: true
+    idea64.exe:
+      ascii_mode: true
+      vim_mode: true
+    gvim.exe:
+      ascii_mode: true
+      vim_mode: true
+    WindowsTerminal.exe:
+      ascii_mode: true
+    XYplorer.exe:
+      ascii_mode: true
+    utools.exe:
+      ascii_mode: true 
+    SecureCRT.exe:
+      ascii_mode: true 
+    Taskmgr.exe :
+      ascii_mode: true 
   style:
     inline_preedit: true
     color_scheme: MacRoseo                 # 匹配正文的颜色方案，对应正文的颜色方案名
