@@ -20,7 +20,7 @@ local function append_original_filter(input, env)
             -- 分号是引导的，输入字符大于一个才有效
             if segInputLen > 1 then 
                 -- 这里和正则字符集和 default.custom.yaml recognizer/patterns/english 配置有关联
-                local word = string.match(segInput, ".*[-_+'a-zA-Z]$")
+                local word = string.match(segInput, ".*[-._+'a-zA-Z]$")
                 -- log.info('s', segInput, word==nil, segInputLen, string.sub(segInput,segInputLen, segInputLen), string.sub(segInput,segInputLen, segInputLen)==";")
                 -- 如果是英语单词，则在候选栏里显示
                 if word ~= nil then 
@@ -35,12 +35,12 @@ local function append_original_filter(input, env)
                 end
             end
         else
-            local word = string.match(segInput, "^[A-Z][-_+'a-zA-Z]*$")
+            local word = string.match(segInput, "^[A-Z][-._+'a-zA-Z]*$")
             -- 如果是以大写字母开关的,则在候选栏里显示
             if word ~= nil then 
                 yield(Candidate("word", seg.start, seg._end, segInput, ""))
             elseif string.sub(segInput,segInputLen, segInputLen) == ";" then
-                -- 
+                -- 如果是以分号结尾的则上屏
                 envengine:commit_text(segInput, 2)
                 envcontext:clear()
                 return
