@@ -31,6 +31,8 @@ patch:
       ascii_mode: true 
     Taskmgr.exe :
       ascii_mode: true 
+    wezterm-gui.exe :
+      ascii_mode: true 
   style:
     inline_preedit: true
     color_scheme: MacRoseo                 # 匹配正文的颜色方案，对应正文的颜色方案名
