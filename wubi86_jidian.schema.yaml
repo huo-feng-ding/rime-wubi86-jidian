@@ -143,7 +143,9 @@ repeat_last_input:
   size: 1
   initial_quality: 1
   
-# editor:
-#   bindings:
-#     Return: commit_composition  # 回车上屏候选码
+#editor:
+#  bindings:
+#    Return: commit_composition  # 回车上屏候选码
+#    Tab: confirm
+#    Control+space: confirm
  

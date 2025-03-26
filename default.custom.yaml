@@ -68,7 +68,8 @@ patch:
       # 回车清码
 #      - { when: composing, accept: Return, send: Escape }
       # Tab清码, 在vim模式插入状态下，中文输入法按Esc清屏时会将输入法切换成英文Bug，先暂时使用Tab或Ctrl+d清码
-      - { when: composing, accept: Tab, send: Escape }
+      #- { when: composing, accept: Tab, send: Escape }
+      - { when: composing, accept: Control+bracketleft, send: Escape }
 
       # vim key bindings
       - { when: composing, accept: Control+k, send: Up }
