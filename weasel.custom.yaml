@@ -26,7 +26,7 @@ patch:
       vim_mode: true
   style:
     inline_preedit: true
-    color_scheme: MacRoseo                 # 匹配正文的颜色方案，对应正文的颜色方案名
+    color_scheme: lost_temple                 # 匹配正文的颜色方案，对应正文的颜色方案名
     display_tray_icon: false
     horizontal: true                        # 横向排列候选
     font_point: 13                          # 候选词 字号
@@ -112,5 +112,17 @@ patch:
       hilited_candidate_back_color: 0x9BAD23
       candidate_text_color: 0x000000
       comment_text_color: 0xBBCC27
+
+    lost_temple:
+      name: 孤寺／Lost Temple
+      author: 佛振 <chen.sst@gmail.com>, based on ir_black
+      text_color: 0xe8f3f6
+      back_color: 0x444444
+      border_color: 0x444444
+      hilited_text_color: 0x82e6ca
+      hilited_back_color: 0x222222
+      hilited_label_color: 0x000000              # color 序号颜色，选中的
+      hilited_candidate_text_color: 0x000000
+      hilited_candidate_back_color: 0x82e6ca
 
   style/layout/border_width: 1
