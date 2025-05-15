@@ -48,8 +48,8 @@ local function processor(key, env)
 		return 1
 	end
 
-	-- 四码无候选词时按空格只清空不上屏
-	if repr == "space" and input:len() == 4 and not context:has_menu() then
+	-- 无候选词时按空格只清空不上屏
+	if repr == "space" and input:len() > 0 and not context:has_menu() then
 		context.input = ""
 		context:clear() -- 清空编码,好像不起太大作用，主要是上边 context.input="" 起了作用
 		return 1
