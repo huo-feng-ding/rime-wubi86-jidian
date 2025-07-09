@@ -23,7 +23,7 @@ local function processor(key, env)
 	local context = engine.context
 	local repr = key:repr()
 	local input = context.input
-	-- log.info(repr, input, env.trigger_key)
+	-- log.info(repr, input, env.trigger_key, check_tag(context))
 
 	if check_tag(context) and repr == "Return" then
 		-- 如果是以分号开头的，则剔除开头的分号上屏
