@@ -127,6 +127,8 @@ punctuator:
 #  import_preset: symbols
 # 开始快捷输入符号功能，前面留两个空格
 # 对应需要将下面 recognizer -> patterns 下面的 punct 字段的注释去掉
+  # 键入数字后，键入“.”后是候选状态, 这里加这个配置后“.”可直接上屏
+  digit_separator_action: commit
 
 key_binder:
   import_preset: default
