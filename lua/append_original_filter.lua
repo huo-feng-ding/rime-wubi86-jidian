@@ -17,7 +17,7 @@ local function append_original_filter(input, env)
 
 		if schema.schema_id == "easy_en" then
 			yield(Candidate("string", seg.start, seg._end, segInput, ""))
-		elseif segInput:match("^[;A-Z][-.;_+'a-zA-Z]*$") then
+		elseif segInput:match("^[;A-Z][-.;_+'0-9a-zA-Z]*$") then
 			-- 上边的正则表达式和 default.custom.yaml recognizer/patterns/english 配置有关联
 			-- log.info('inputInfo:', segInput, segInputLen, string.sub(segInput,segInputLen, segInputLen), string.sub(segInput,segInputLen, segInputLen)==";")
 

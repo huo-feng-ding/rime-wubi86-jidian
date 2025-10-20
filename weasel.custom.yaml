@@ -9,7 +9,7 @@ customization:
   config_version: "0.22"
 
 patch:
-  show_notifications: false
+  show_notifications: true
   show_notifications_time: 1000            # 部署通知、中英切换标识  显示时长 ms
   app_options:
     code.exe:
@@ -27,6 +27,9 @@ patch:
     WindowsTerminal.exe:
       ascii_mode: true
       vim_mode: true
+    uTools.exe:
+      ascii_mode: true
+      vim_mode: false
   style:
     inline_preedit: true
     color_scheme: lost_temple                 # 匹配正文的颜色方案，对应正文的颜色方案名
