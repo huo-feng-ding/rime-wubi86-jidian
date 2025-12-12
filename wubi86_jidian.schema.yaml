@@ -16,7 +16,7 @@ schema:
 
 switches:
   - name: ascii_mode
-    reset: 0
+    reset: 1  #默认英文输入法
     states: [ 中, En ]
   - name: zh_trad
     reset: 0    # 初始状态为 0: 简 -> 简 1: 简 -> 繁
@@ -34,6 +34,7 @@ engine:
     - ascii_composer
     - recognizer
     - key_binder
+    - lua_processor@*processor_enter_skip_prefix
     - speller
     - punctuator
     - selector
@@ -53,6 +54,7 @@ engine:
     - history_translator@repeat_last_input # 重复上一次输入，对应下面的 repeat_last_input
   filters:
     - simplifier@tradition
+    - lua_filter@*append_original_filter # 分号临时英文，再输入分号顶屏上字
 #    - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
 #    - lua_filter@*wubi86_jidian_single_char_only # 纯单字
 
@@ -63,7 +65,8 @@ engine:
 speller:
   max_code_length: 4                    # 四码上屏
   auto_select: true                     # 四码唯一时，自动上屏
-#  auto_clear: max_length                # 空码时自动清空
+  auto_clear: max_length                # 空码时自动清空
+  auto_select_unique_candidate: true    # 无重码自动上屏
 
 translator:
   dictionary: wubi86_jidian             # 翻译器将调取此字典文件
@@ -113,6 +116,8 @@ punctuator:
 #  import_preset: symbols
 # 开始快捷输入符号功能，前面留两个空格
 # 对应需要将下面 recognizer -> patterns 下面的 punct 字段的注释去掉
+  # 键入数字后，键入“.”后是候选状态, 这里加这个配置后“.”可直接上屏
+  digit_separator_action: commit
 
 key_binder:
   import_preset: default
@@ -128,3 +133,10 @@ repeat_last_input:
   input: z
   size: 1
   initial_quality: 1
+  
+#editor:
+#  bindings:
+#    Return: commit_composition  # 回车上屏候选码
+#    Tab: confirm
+#    Control+space: confirm
+ 
