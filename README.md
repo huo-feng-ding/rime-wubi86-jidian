@@ -81,10 +81,6 @@ patch:
 │   └── logo.png                      # logo
 ├── 仓键盘布局
 │   └── ios-仓输入法键盘布局-2026-05-15.yaml # 仓输入法键盘布局
-├── lua  # lua 脚本
-│   ├── wubi86_jidian_date_translator.lua
-│   ├── wubi86_jidian_single_char_first_filter.lua
-│   └── wubi86_jidian_single_char_only.lua
 ├── default.custom.yaml                     # 配置 - 自定义一些输入法的功能：标点，二三候选等
 ├── squirrel.custom.yaml                    # 配置 - 鼠须管（for macOS）输入法候选词界面
 ├── weasel.custom.yaml                      # 配置 - 小狼毫（for Windows）输入法候选词界面
@@ -292,14 +288,21 @@ iOS 添加词时需要用到 `快捷指令`，我已做了分享，直接点击�
 
 ### 8. 系统 `时间`、`日期` 和 `星期`
 
-> 需要系统中已装有 lua 支持，当你打不出这些内容的时候，可能就是这个原因。  
-> 下载链接： [https://sourceforge.net/projects/luabinaries/files/5.4.2/](https://sourceforge.net/projects/luabinaries/files/5.4.2/)
+>  2026-09-01 弃用原来的 lua 的方式输入日期等
 
+替代方案： 使用 espanso 作字符替换，使用 `/espanso/rime-date.yml` 文件作为程序的配置。
 
-输入对应词，获取当前日期和时间
-- `date` 输出日期，格式 `2019年06月19日` `2019-06-19`
-- `time` 输出时间，格式 `10:00` `10:00:00`
-- `week` 输出星期，格式 `周四` `星期四`
+| 输入       | 说明 | 示例输出 |
+|----------|------|----------|
+| `:date`  | 日期 | `2026-09-01` |
+| `:zdate` | 日期（中文） | `2026年09月01日` |
+| `:stamp` | 时间戳 | `20260901100000` |
+| `:time`  | 时间 | `10:00:00` |
+| `:ftime` | 日期时间 | `2026-09-01 10:00:00` |
+| `:week`  | 星期几 | `星期一` |
+
+> **为什么不再使用 lua**  
+> 启用这个 lua 脚本之后，会非常明显的拖慢输入的响应速度，可能只有几十 ms，但也能明显的感觉到不跟手，为了这个小小的输入功能，拖慢整个输入体验，不值得。
 
 ### 9. 支持大写数字输入：壹贰叁肆伍陆
 本库中包含一个可以输入大写数字的方案，名叫 `大写数字`，呼出菜单选择该方案即可。
@@ -381,14 +384,7 @@ iOS 添加词时需要用到 `快捷指令`，我已做了分享，直接点击�
 > 当你通过 iCloud 实现多端同步之后，这些新增的词也会出同步现在其它平台上。  
 > 之后有时间了再通过 PC 整理这些词条到你的个人分类词库中即可。
 
-### 6. 输出系统变量
-自 Rime `v0.13` 之后可自定义输出系统变量，如日期等
-
-文件夹 [./lua/](https://github.com/KyleBing/rime-wubi86-jidian/blob/master/rime/) 盛放的是调用的方法，你需要在相应的 `XXXX.schema.yaml` 文件的 `engine`/`translators` 字段添加一些东西，可以参阅本库的 [`wubi86_jidian.schema.yaml`](https://github.com/KyleBing/rime-wubi86-jidian/blob/master/wubi86_jidian.schema.yaml) 文件。
-
-具体 `rime.lua` 文件说明参阅这里： [https://github.com/hchunhui/librime-lua/blob/master/sample/lua/date.lua](https://github.com/hchunhui/librime-lua/blob/master/sample/lua/date.lua)
-
-### 7. 开启自动造词
+### 6. 开启自动造词
 
 <img width="463" alt="auto-create-words" src="https://user-images.githubusercontent.com/12215982/114480534-4b922200-9c35-11eb-8d08-4c8eacb407a2.png">
 
@@ -409,15 +405,8 @@ translator:
 ```
 
 
-### 8. 单字派
-如果你是单字派，只打单字，可以修改 `wubi86_jidian.schema.yaml` 这个文件，找到以下位置，根据需要去除对应行前面的 `#`，重新部署即可生效
-```yaml
-  filters:
-#    - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
-#    - lua_filter@*wubi86_jidian_single_char_only # 纯单字
-```
 
-### 9. 隐藏候选窗口（Windows）
+### 7. 隐藏候选窗口（Windows）
 有些追求极致的用户不喜欢有候选框的显示，平时打字也用不到候选窗口，候选窗口也是可以隐藏的。（Windows）
 编辑 `weasel.custom.yaml` 文件，定位到 `style.layout`，编辑 `margin_x` `margin_y` 将值设置成负值即可。
 
@@ -430,7 +419,7 @@ translator:
 
 <img src="https://github.com/KyleBing/rime-wubi86-jidian/assets/12215982/d440c7f0-8cde-49f6-b778-a3fc4aefe9da" width="500">
 
-### 10. 定义输入方案的图标（Windows）
+### 8. 定义输入方案的图标（Windows）
 Windows 小狼毫 v0.15.0 版已经支持自定义某个方案的图标了，比如这个五笔方案就已经设置了自定义的图标。任务栏的图标不再是原来的 “中” 字，而是：
 
 <img src="https://github.com/KyleBing/rime-wubi86-jidian/assets/12215982/7377bde6-a36d-40ac-b0ad-0674d22a68a3" width="600">

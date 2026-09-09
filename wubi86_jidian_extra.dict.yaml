@@ -61,7 +61,6 @@ CarPlay	carp
 加满	lkia
 内饰	mwqn
 车损	lgrk
-授理	regj
 三者	dgft
 三者险	dfbw	100
 车标	lgsf
@@ -293,7 +292,11 @@ Ninja650	ninj
 罗曼蒂克消亡史	ljak
 敦刻尔克	yyqd
 谍影重重	yjtt
-满城尽待黄金甲	ifnl
+满城尽带黄金甲	ifnl
+白鹿原	rydr
+异次元杀阵	nufb	20
+心慌方	nnyy
+雷霆特攻队	fftb
 
 ## 歌手
 谢春花	ydaw
@@ -333,6 +336,7 @@ Ninja650	ninj
 刘烨溦	yoim
 凤凰传奇	mmwd
 张杰	xtso	20
+筷子兄弟	tbku
 
 ## 演员
 周韵	mfuj
@@ -340,11 +344,11 @@ Ninja650	ninj
 姜武	ugga
 舒淇	wfia
 赵薇	fhat
-葛尤	ajdn
+葛优	ajwd
 甄子丹	sbmy
 李连杰	slso
 姚晨	vijd
-王洛丹	gimy
+王珞丹	ggmy
 孙红雷	bxfl
 沙溢	iiiu
 张艺谋	xaya
@@ -565,7 +569,6 @@ Thunder	thun
 常开	ipga	100
 像是	wqjg	100
 定睛一看	phgr
-甲抗	lhry
 户口本	yksg	100
 笼布	tddm	100
 糯米粉	ooow	100
@@ -1009,7 +1012,7 @@ CPU	cpu	20
 天降正义	gbgy	20
 准新	uwus	20
 云闪付	fuwf	20
-雨加雪	flfv	20
+雨夹雪	fgfv	20
 准新车	uulg	20
 倍焦	wuwy
 物联	trbu
@@ -1194,7 +1197,6 @@ SwiftUI	swif
 本地化	sfwx	20
 莓粉	atow
 相比之下	sxpg
-脚指	efrx
 内六	mwuy	20
 像极	wqse
 慢动作	nfwt	20
@@ -1347,7 +1349,7 @@ MiyooA30	miyo
 缓动	xefc	15
 幸福感	fpdg
 大美女	duvv
-死要面子活爱罪	gsdl
+死要面子活受罪	gsdl
 残影	gqjy
 期朌	adew
 侧脸	wmew
@@ -1384,7 +1386,7 @@ AI	ai
 匝道	amut	20
 爸妈	wqvc	20
 武大郎	gdyv	20
-人贬子	wmbb
+人贩子	wmbb
 先天性	tgnt
 一眼万年	ghdr
 社恐	pyam
@@ -1393,7 +1395,6 @@ AI	ai
 白噪音	rkuj
 有图有真相	dlds
 狗头	qtud	25
-换程	rqtk
 口嗨	kkki	20
 抠搜	rarv	20
 高光	ymiq	20
@@ -1402,7 +1403,6 @@ AI	ai
 大二	ddfg	15
 大三	dddg	30
 咪咪	koko	20
-优衣酷	wysg	20
 学前班	iugy	20
 好长	vbta	20
 龙葵	dxaw
@@ -1652,6 +1652,49 @@ HiFi	hifi	20
 版本号	tskg
 平齐	guyj
 减速带	uggk	20
+曲库	mayl
+摔车	rylg	20
+坝体	fmws
+麦地	gtfb
+冰箱贴	utmh
+生蚝	tgjt
+沙宣	iipg
+山竹	mmtt	20
+五笔码表助手	gtdr
+桥接	stru	20
+公钥	wcqe
+私钥	tcqe
+点阵屏	hbnu
+直方图	fylt	20
+知了猴	tbqt
+验孕棒	cesd
+验孕	cweb
+懒人沙发	nwin
+摩斯	ysad
+死不了	ggbn
+螨虫	jajh
+宽高比	pyxx	20
+宽高	paym	20
+进度条	fyts
+百香果	dtjs
+家家悦	ppnu
+五花肉	gamw	20
+豆芛	gkav	20
+抽油烟机	rios
+油烟机	iosm
+早午	jhtf
+豆笋	gktv
+端点	umhk	20
+含盖	wyug
+插针	rtqf	20
+顶边	sdlp	20
+纸飞机	xnsm
+双指	ccrx
+比例尺	xwny	20
+游龙板	idsr
+活力板	ilsr
+陆冲板	busr
+上北下南	hugf
 
 ## 软件名
 懂车帝	nlup
@@ -1748,6 +1791,17 @@ Ulanzi	ulan
 固特异	ltna
 乐图	qilt	18
 森海塞尔	sipq
+名创优品	qwwk	20
+盒马	wgcn
+蜜雪	pnfv
+零刻	fwyn	20
+畅网	jhmq
+英伟达	awdp
+铭凡	qqmy
+微雪	tmfv
+赵一呜	fgkq
+柏缇	srxj
+麦购	gtmq
 
 ## 区域
 莒县	akeg
@@ -1781,6 +1835,7 @@ Ulanzi	ulan
 福来士	pgfg	20
 博山	fgmm	20
 灵岩寺	vmff
+八大局	wdnn
 
 ## 医学
 直肠癌	feuk

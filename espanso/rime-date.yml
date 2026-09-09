@@ -1,0 +1,52 @@
+matches:
+  - trigger: ":date"  # 日期 2026-09-01
+    replace: "{{d}}"
+    vars:
+      - name: d
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":zdate" # 日期 2026年09月01日
+    replace: "{{d}}"
+    vars:
+      - name: d
+        type: date
+        params:
+          format: "%Y年%m月%d日"
+
+  - trigger: ":stamp" # 时间戳 20260901100000
+    replace: "{{d}}"
+    vars:
+      - name: d
+        type: date
+        params:
+          format: "%Y%m%d%H%M%S"
+
+  - trigger: ":time" # 时间 10:00:00
+    replace: "{{t}}"
+    vars:
+      - name: t
+        type: date
+        params:
+          format: "%H:%M:%S"
+
+  - trigger: ":ftime" # 日期时间 full 2026-09-01 10:00:00
+    replace: "{{dt}}"
+    vars:
+      - name: dt
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M:%S"
+
+  - trigger: ":week" # 星期几
+    replace: "{{w}}"
+    vars:
+      - name: w
+        type: code
+        params:
+          engine: javascript
+          params: []
+          code: |
+            const days = ['日','一','二','三','四','五','六'];
+            return '星期' + days[new Date().getDay()];

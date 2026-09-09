@@ -50,13 +50,13 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
-    - lua_translator@*wubi86_jidian_date_translator # 日期、时间、星期
+#   - lua_translator@*wubi86_jidian_date_translator # 日期、时间、星期
     - history_translator@repeat_last_input # 重复上一次输入，对应下面的 repeat_last_input
   filters:
     - simplifier@tradition
     - lua_filter@*append_original_filter # 分号临时英文，再输入分号顶屏上字
-#    - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
-#    - lua_filter@*wubi86_jidian_single_char_only # 纯单字
+#   - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
+#   - lua_filter@*wubi86_jidian_single_char_only # 纯单字
 
 
 
