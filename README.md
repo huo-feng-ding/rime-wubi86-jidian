@@ -286,25 +286,7 @@ iOS 添加词时需要用到 `快捷指令`，我已做了分享，直接点击�
 具体可以看这个文件内的说明： [wubi86_jidian_trad.schema.yaml](https://github.com/KyleBing/rime-wubi86-jidian/blob/master/wubi86_jidian_trad.schema.yaml)
 > 以不切换文字的形式使用只是暂时转繁，换个程序就会恢复简体了。如果你想一直使用简入繁出就选择 「简入繁出」这个方案
 
-### 8. 系统 `时间`、`日期` 和 `星期`
-
->  2026-09-01 弃用原来的 lua 的方式输入日期等
-
-替代方案： 使用 espanso 作字符替换，使用 `/espanso/rime-date.yml` 文件作为程序的配置。
-
-| 输入       | 说明 | 示例输出 |
-|----------|------|----------|
-| `:date`  | 日期 | `2026-09-01` |
-| `:zdate` | 日期（中文） | `2026年09月01日` |
-| `:stamp` | 时间戳 | `20260901100000` |
-| `:time`  | 时间 | `10:00:00` |
-| `:ftime` | 日期时间 | `2026-09-01 10:00:00` |
-| `:week`  | 星期几 | `星期一` |
-
-> **为什么不再使用 lua**  
-> 启用这个 lua 脚本之后，会非常明显的拖慢输入的响应速度，可能只有几十 ms，但也能明显的感觉到不跟手，为了这个小小的输入功能，拖慢整个输入体验，不值得。
-
-### 9. 支持大写数字输入：壹贰叁肆伍陆
+### 8. 支持大写数字输入：壹贰叁肆伍陆
 本库中包含一个可以输入大写数字的方案，名叫 `大写数字`，呼出菜单选择该方案即可。
 
 在这个模式下：具体可以看源文件 [`numbers.schema.yaml`](https://github.com/KyleBing/rime-wubi86-jidian/blob/master/numbers.schema.yaml)
@@ -317,13 +299,13 @@ iOS 添加词时需要用到 `快捷指令`，我已做了分享，直接点击�
 | z           | 整之               | | z          | 整之               |
 | y           | 元月亿             | | y          | 元月亿             |
 
-### 10. 特殊字符快捷输入
+### 9. 特殊字符快捷输入
 默认是关闭的，具体可以查看 wiki [如何启用 ` /fh` 这种特殊符号输入](https://github.com/KyleBing/rime-wubi86-jidian/wiki/%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8-%60--fh%60-%E8%BF%99%E7%A7%8D%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E8%BE%93%E5%85%A5)
 
 <img width="300" src="https://user-images.githubusercontent.com/12215982/134291024-7df6073c-ec5a-420c-bcd1-2e63ea33d04b.jpg"/>
 
 
-### 11. <kbd>z</kbd> 键重复上次输入内容
+### 10. <kbd>z</kbd> 键重复上次输入内容
 
 <img width="435" alt="Screenshot 2024-01-25 at 09 56 53" src="https://github.com/KyleBing/rime-wubi86-jidian/assets/12215982/8730a3f9-14d8-4ea7-92c8-75dfd220e65b">
 
